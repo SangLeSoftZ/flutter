@@ -1,6 +1,10 @@
 // ignore_for_file: unused_import
+import 'dart:io';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:path_provider/path_provider.dart';
 
 // ── State Management ─────────────────────────────────────────────
 import 'login/injection_container.dart';
@@ -28,8 +32,24 @@ import 'login_page.dart';
 import 'login/presentation/auth_startup.dart';
 import 'login/presentation/login_clean_screen.dart';
 
+// ── Tuần 2 Ngày 1: BlocObserver + HydratedBloc ───────────────────
+import 'tuan2_ngay1/app_bloc_observer.dart';
+import 'tuan2_ngay1/theme_screen.dart';
+
+// ── Tuần 2 Ngày 2: go_router ─────────────────────────────────────
+import 'tuan2_ngay2/app_router.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  Bloc.observer = AppBlocObserver();
+
+  final storage = await HydratedStorage.build(
+    storageDirectory: Directory(
+      (await getApplicationDocumentsDirectory()).path,
+    ),
+  );
+  HydratedBloc.storage = storage;
 
   await Hive.initFlutter();
   Hive.registerAdapter(TaskHiveModelAdapter());
@@ -45,42 +65,38 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    // ══════════════════════════════════════════════════════════
+    // ĐỔI DÒNG return bên dưới để chạy từng bài
+    // ══════════════════════════════════════════════════════════
+
+    // ── Tuần 2 Ngày 2: go_router (đang bật) ──────────────────
+    return MaterialApp.router(
       title: 'Bai Tap Flutter',
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-
-      // ══════════════════════════════════════════════════════════
-      // ĐỔI DÒNG home: bên dưới để chạy từng bài
-      // Chỉ bỏ comment 1 dòng, các dòng còn lại giữ nguyên
-      // ══════════════════════════════════════════════════════════
-
-      // ── Bài 4+5: Auth flow hoàn chỉnh (đang bật) ─────────────
-      home: const AuthStartup(),
-
-      // ── Bài 5 storage: Onboarding SharedPreferences ───────────
-      // home: const AppStartup(),
-
-      // ── Bài 5 storage: Hive Task CRUD ─────────────────────────
-      // home: const HiveTaskScreen(),
-
-      // ── Bài 5 storage: MultiBlocProvider demo ─────────────────
-      // home: const MultiBlocDemoScreen(),
-
-      // ── Bài 4: Task API (gọi Spring Boot) ─────────────────────
-      // home: const TaskScreen(),
-
-      // ── Bài 3: FavoriteScreen (Bloc/Cubit) ────────────────────
-      // home: const FavoriteScreen(),
-
-      // ── Clean Architecture + get_it (không có token flow) ─────
-      // home: const LoginCleanScreen(),
-
-      // ── Login cũ (bài đầu) ────────────────────────────────────
-      // home: const LoginPage(),
+      routerConfig: appRouter,
     );
+
+    // ── Tuần 2 Ngày 1: HydratedBloc ──────────────────────────
+    // return MaterialApp(
+    //   title: 'Bai Tap Flutter',
+    //   debugShowCheckedModeBanner: false,
+    //   theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple), useMaterial3: true),
+    //   home: const ThemeScreen(),
+    // );
+
+    // ── Bài 4+5: Auth flow hoàn chỉnh ─────────────────────────
+    // return MaterialApp(home: const AuthStartup());
+
+    // ── Bài 5 storage: Onboarding ─────────────────────────────
+    // return MaterialApp(home: const AppStartup());
+
+    // ── Bài 5 storage: Hive Task CRUD ─────────────────────────
+    // return MaterialApp(home: const HiveTaskScreen());
+
+    // ── Bài 4: Task API ───────────────────────────────────────
+    // return MaterialApp(home: const TaskScreen());
+
+    // ── Bài 3: FavoriteScreen ─────────────────────────────────
+    // return MaterialApp(home: const FavoriteScreen());
   }
 }

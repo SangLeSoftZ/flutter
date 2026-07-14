@@ -6,7 +6,7 @@ import '../login/data/datasources/auth_local_datasource.dart';
 /// ApiClient gọi Task API Spring Boot.
 /// BUG FIX: Gắn Authorization: Bearer token vào mọi request
 class ApiClient {
-  static const String _baseUrl = 'http://10.0.2.2:9090/api';
+  static const String _baseUrl = 'http://10.0.2.2:8080/api';
 
   final http.Client _client;
   final AuthLocalDataSource _authLocal;
@@ -30,7 +30,7 @@ class ApiClient {
   // ── GET /baiA ─────────────────────────────────────────────────────────────
 
   Future<List<Task>> layDanhSachTask() async {
-    final uri = Uri.parse('$_baseUrl/baiA');
+    final uri = Uri.parse('$_baseUrl/tasks');
     final headers = await _buildHeaders();
     try {
       final response = await _client
@@ -59,7 +59,7 @@ class ApiClient {
     String moTa = '',
     String trangThai = 'CHUA_XONG',
   }) async {
-    final uri = Uri.parse('$_baseUrl/baiA');
+    final uri = Uri.parse('$_baseUrl/tasks');
     final headers = await _buildHeaders(withContentType: true);
     final body = jsonEncode({
       'tieuDe': tieuDe,
