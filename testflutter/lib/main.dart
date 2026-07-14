@@ -36,8 +36,13 @@ import 'login/presentation/login_clean_screen.dart';
 import 'tuan2_ngay1/app_bloc_observer.dart';
 import 'tuan2_ngay1/theme_screen.dart';
 
-// ── Tuần 2 Ngày 2: go_router ─────────────────────────────────────
+// ── Tuần 2 Ngày 2 Sáng: go_router cơ bản ────────────────────────
 import 'tuan2_ngay2/app_router.dart';
+
+// ── Tuần 2 Ngày 2 Chiều: Route Guard ─────────────────────────────
+import 'login/data/datasources/auth_local_datasource.dart';
+import 'tuan2_ngay2_guard/app_router_guard.dart';
+import 'tuan2_ngay2_guard/auth_state.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -57,6 +62,11 @@ void main() async {
 
   setupLocator();
 
+  // Đọc token 1 lần khi khởi động → lưu vào RAM cho redirect() dùng đồng bộ
+  final authLocal = AuthLocalDataSource();
+  final daCoToken = await authLocal.isLoggedIn();
+  authState.khoiTao(daCoToken);
+
   runApp(const MyApp());
 }
 
@@ -69,12 +79,19 @@ class MyApp extends StatelessWidget {
     // ĐỔI DÒNG return bên dưới để chạy từng bài
     // ══════════════════════════════════════════════════════════
 
-    // ── Tuần 2 Ngày 2: go_router (đang bật) ──────────────────
+    // ── Tuần 2 Ngày 2 Chiều: Route Guard (đang bật) ──────────
     return MaterialApp.router(
       title: 'Bai Tap Flutter',
       debugShowCheckedModeBanner: false,
-      routerConfig: appRouter,
+      routerConfig: appRouterGuard,
     );
+
+    // ── Tuần 2 Ngày 2 Sáng: go_router cơ bản ─────────────────
+    // return MaterialApp.router(
+    //   title: 'Bai Tap Flutter',
+    //   debugShowCheckedModeBanner: false,
+    //   routerConfig: appRouter,
+    // );
 
     // ── Tuần 2 Ngày 1: HydratedBloc ──────────────────────────
     // return MaterialApp(
