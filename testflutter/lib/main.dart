@@ -44,9 +44,13 @@ import 'login/data/datasources/auth_local_datasource.dart';
 import 'tuan2_ngay2_guard/app_router_guard.dart';
 import 'tuan2_ngay2_guard/auth_state.dart';
 
-// ── Tuần 2 Ngày 3: Implicit Animation ────────────────────────────
+// ── Tuần 2 Ngày 3 Sáng: Implicit Animation ───────────────────────
 import 'tuan2_ngay3/animated_box_screen.dart';
 import 'tuan2_ngay3/login_animation_screen.dart';
+
+// ── Tuần 2 Ngày 3 Chiều: Hero Animation ──────────────────────────
+import 'tuan2_ngay3/hero_task_list_screen.dart';
+import 'tuan2_ngay3/hero_task_detail_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -66,7 +70,6 @@ void main() async {
 
   setupLocator();
 
-  // Đọc token 1 lần khi khởi động → lưu vào RAM cho redirect() dùng đồng bộ
   final authLocal = AuthLocalDataSource();
   final daCoToken = await authLocal.isLoggedIn();
   authState.khoiTao(daCoToken);
@@ -83,17 +86,23 @@ class MyApp extends StatelessWidget {
     // ĐỔI DÒNG return bên dưới để chạy từng bài
     // ══════════════════════════════════════════════════════════
 
-    // ── Tuần 2 Ngày 3 Bài 1: AnimatedContainer (đang bật) ────
+    // ── Tuần 2 Ngày 3 Chiều: Hero Animation (đang bật) ───────
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: HeroTaskListScreen(),
+    );
+
+    // ── Tuần 2 Ngày 3 Bài 2: AnimatedOpacity + Login ─────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: LoginAnimationScreen(),
+    // );
+
+    // ── Tuần 2 Ngày 3 Bài 1: AnimatedContainer ───────────────
     // return const MaterialApp(
     //   debugShowCheckedModeBanner: false,
     //   home: AnimatedBoxScreen(),
     // );
-
-    // ── Tuần 2 Ngày 3 Bài 2: AnimatedOpacity + Login ─────────
-      return const MaterialApp(
-       debugShowCheckedModeBanner: false,
-       home: LoginAnimationScreen(),
-     );
 
     // ── Tuần 2 Ngày 2 Chiều: Route Guard ─────────────────────
     // return MaterialApp.router(
