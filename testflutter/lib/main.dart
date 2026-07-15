@@ -44,6 +44,10 @@ import 'login/data/datasources/auth_local_datasource.dart';
 import 'tuan2_ngay2_guard/app_router_guard.dart';
 import 'tuan2_ngay2_guard/auth_state.dart';
 
+// ── Tuần 2 Ngày 3: Implicit Animation ────────────────────────────
+import 'tuan2_ngay3/animated_box_screen.dart';
+import 'tuan2_ngay3/login_animation_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -79,12 +83,24 @@ class MyApp extends StatelessWidget {
     // ĐỔI DÒNG return bên dưới để chạy từng bài
     // ══════════════════════════════════════════════════════════
 
-    // ── Tuần 2 Ngày 2 Chiều: Route Guard (đang bật) ──────────
-    return MaterialApp.router(
-      title: 'Bai Tap Flutter',
-      debugShowCheckedModeBanner: false,
-      routerConfig: appRouterGuard,
-    );
+    // ── Tuần 2 Ngày 3 Bài 1: AnimatedContainer (đang bật) ────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: AnimatedBoxScreen(),
+    // );
+
+    // ── Tuần 2 Ngày 3 Bài 2: AnimatedOpacity + Login ─────────
+      return const MaterialApp(
+       debugShowCheckedModeBanner: false,
+       home: LoginAnimationScreen(),
+     );
+
+    // ── Tuần 2 Ngày 2 Chiều: Route Guard ─────────────────────
+    // return MaterialApp.router(
+    //   title: 'Bai Tap Flutter',
+    //   debugShowCheckedModeBanner: false,
+    //   routerConfig: appRouterGuard,
+    // );
 
     // ── Tuần 2 Ngày 2 Sáng: go_router cơ bản ─────────────────
     // return MaterialApp.router(
