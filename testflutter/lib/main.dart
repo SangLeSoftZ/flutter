@@ -34,6 +34,7 @@ import 'login/presentation/login_clean_screen.dart';
 
 // ── Tuần 2 Ngày 1: BlocObserver + HydratedBloc ───────────────────
 import 'tuan2_ngay1/app_bloc_observer.dart';
+import 'tuan2_ngay1/theme_cubit.dart';
 import 'tuan2_ngay1/theme_screen.dart';
 
 // ── Tuần 2 Ngày 2 Sáng: go_router cơ bản ────────────────────────
@@ -54,6 +55,10 @@ import 'tuan2_ngay3/hero_task_detail_screen.dart';
 
 // ── Tuần 2 Ngày 4 Sáng: Custom Widget ────────────────────────────
 import 'tuan2_ngay4/custom_widget_screen.dart';
+
+// ── Tuần 2 Ngày 4 Chiều: Theming Light/Dark ──────────────────────
+import 'tuan2_ngay4_theme/app_themes.dart';
+import 'tuan2_ngay4_theme/themed_task_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -89,11 +94,30 @@ class MyApp extends StatelessWidget {
     // ĐỔI DÒNG return bên dưới để chạy từng bài
     // ══════════════════════════════════════════════════════════
 
-    // ── Tuần 2 Ngày 4 Sáng: Custom Widget (đang bật) ─────────
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: CustomWidgetScreen(),
+    // ── Tuần 2 Ngày 4 Chiều: Theming (đang bật) ──────────────
+    // BlocProvider bọc bên ngoài MaterialApp để ThemeCubit
+    // có thể điều khiển theme + darkTheme + themeMode
+    return BlocProvider(
+      create: (_) => ThemeCubit(),
+      child: BlocBuilder<ThemeCubit, bool>(
+        builder: (context, isDark) {
+          return MaterialApp(
+            debugShowCheckedModeBanner: false,
+            // Kết nối lightTheme/darkTheme với ThemeCubit
+            theme: lightTheme,
+            darkTheme: darkTheme,
+            themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
+            home: const ThemedTaskScreen(),
+          );
+        },
+      ),
     );
+
+    // ── Tuần 2 Ngày 4 Sáng: Custom Widget ────────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: CustomWidgetScreen(),
+    // );
 
     // ── Tuần 2 Ngày 3 Chiều: Hero Animation ──────────────────
     // return const MaterialApp(
