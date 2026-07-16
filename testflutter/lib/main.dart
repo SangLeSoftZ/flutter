@@ -60,6 +60,12 @@ import 'tuan2_ngay4/custom_widget_screen.dart';
 import 'tuan2_ngay4_theme/app_themes.dart';
 import 'tuan2_ngay4_theme/themed_task_screen.dart';
 
+// ── Tuần 2 Ngày 5: Drift + Clean Architecture ────────────────────
+import 'tuan2_ngay5/data/local/database_provider.dart' as drift_provider;
+import 'tuan2_ngay5/domain/repositories/task_local_repository.dart';
+import 'tuan2_ngay5/presentation/cubit/drift_task_cubit.dart';
+import 'tuan2_ngay5/presentation/screens/drift_task_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -77,6 +83,8 @@ void main() async {
   await Hive.openBox<TaskHiveModel>(kTaskBox);
 
   setupLocator();
+  // Drift KHÔNG khởi tạo ở đây — tránh deadlock trước runApp
+  // Sẽ được khởi tạo qua FutureBuilder trong build()
 
   final authLocal = AuthLocalDataSource();
   final daCoToken = await authLocal.isLoggedIn();
@@ -94,24 +102,51 @@ class MyApp extends StatelessWidget {
     // ĐỔI DÒNG return bên dưới để chạy từng bài
     // ══════════════════════════════════════════════════════════
 
-    // ── Tuần 2 Ngày 4 Chiều: Theming (đang bật) ──────────────
-    // BlocProvider bọc bên ngoài MaterialApp để ThemeCubit
-    // có thể điều khiển theme + darkTheme + themeMode
-    return BlocProvider(
-      create: (_) => ThemeCubit(),
-      child: BlocBuilder<ThemeCubit, bool>(
-        builder: (context, isDark) {
-          return MaterialApp(
-            debugShowCheckedModeBanner: false,
-            // Kết nối lightTheme/darkTheme với ThemeCubit
-            theme: lightTheme,
-            darkTheme: darkTheme,
-            themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
-            home: const ThemedTaskScreen(),
+    // ── Tuần 2 Ngày 5: Drift + Clean Architecture (đang bật) ─
+    // FutureBuilder để khởi tạo Drift SAU khi Flutter engine sẵn sàng
+    // tránh deadlock khi gọi NativeDatabase trước runApp
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: FutureBuilder(
+        future: drift_provider.setupDriftLocator(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState != ConnectionState.done) {
+            return const Scaffold(
+              body: Center(child: CircularProgressIndicator()),
+            );
+          }
+          if (snapshot.hasError) {
+            return Scaffold(
+              body: Center(
+                child: Text('Lỗi khởi tạo DB: ${snapshot.error}'),
+              ),
+            );
+          }
+          return BlocProvider(
+            create: (_) => DriftTaskCubit(
+              drift_provider.getIt<TaskLocalRepository>(),
+            ),
+            child: const DriftTaskScreen(),
           );
         },
       ),
     );
+
+    // ── Tuần 2 Ngày 4 Chiều: Theming ─────────────────────────
+    // return BlocProvider(
+    //   create: (_) => ThemeCubit(),
+    //   child: BlocBuilder<ThemeCubit, bool>(
+    //     builder: (context, isDark) {
+    //       return MaterialApp(
+    //         debugShowCheckedModeBanner: false,
+    //         theme: lightTheme,
+    //         darkTheme: darkTheme,
+    //         themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
+    //         home: const ThemedTaskScreen(),
+    //       );
+    //     },
+    //   ),
+    // );
 
     // ── Tuần 2 Ngày 4 Sáng: Custom Widget ────────────────────
     // return const MaterialApp(

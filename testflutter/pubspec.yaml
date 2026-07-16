@@ -17,10 +17,12 @@ dependencies:
   shared_preferences: ^2.3.3
   hive: ^2.2.3
   hive_flutter: ^1.1.0
-  flutter_secure_storage: ^9.2.4  # Bài 5 — lưu JWT token an toàn (encrypted)
-  hydrated_bloc: ^9.1.5           # Tuần 2 Ngày 1 — tự động lưu/khôi phục state
-  path_provider: ^2.1.0           # Tuần 2 Ngày 1 — lấy đường dẫn thư mục app
-  go_router: ^14.0.0              # Tuần 2 Ngày 2 — declarative navigation
+  flutter_secure_storage: ^9.2.4
+  hydrated_bloc: ^9.1.5
+  path_provider: ^2.1.0
+  go_router: ^14.0.0
+  sqflite: ^2.3.0               # Tuần 2 Ngày 5 — SQLite local database
+  path: ^1.9.0                  # Tuần 2 Ngày 5 — xử lý đường dẫn file
 
 dev_dependencies:
   flutter_test:
