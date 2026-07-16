@@ -52,6 +52,9 @@ import 'tuan2_ngay3/login_animation_screen.dart';
 import 'tuan2_ngay3/hero_task_list_screen.dart';
 import 'tuan2_ngay3/hero_task_detail_screen.dart';
 
+// ── Tuần 2 Ngày 4 Sáng: Custom Widget ────────────────────────────
+import 'tuan2_ngay4/custom_widget_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -86,11 +89,17 @@ class MyApp extends StatelessWidget {
     // ĐỔI DÒNG return bên dưới để chạy từng bài
     // ══════════════════════════════════════════════════════════
 
-    // ── Tuần 2 Ngày 3 Chiều: Hero Animation (đang bật) ───────
+    // ── Tuần 2 Ngày 4 Sáng: Custom Widget (đang bật) ─────────
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HeroTaskListScreen(),
+      home: CustomWidgetScreen(),
     );
+
+    // ── Tuần 2 Ngày 3 Chiều: Hero Animation ──────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: HeroTaskListScreen(),
+    // );
 
     // ── Tuần 2 Ngày 3 Bài 2: AnimatedOpacity + Login ─────────
     // return const MaterialApp(
