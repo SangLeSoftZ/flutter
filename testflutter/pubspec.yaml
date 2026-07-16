@@ -27,6 +27,8 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  integration_test:
+    sdk: flutter          # Tuần 2 Ngày 6 — Integration Test end-to-end
   flutter_lints: ^5.0.0
   bloc_test: ^9.1.7
   mocktail: ^1.0.4
