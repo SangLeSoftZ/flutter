@@ -74,6 +74,9 @@ import 'tuan3_ngay1/bai2_isolate_parse_screen.dart';
 import 'tuan3_ngay1/bai3_custom_painter_screen.dart';
 import 'tuan3_ngay1/bai4_should_repaint_demo_screen.dart';
 
+// ── Tuần 3 Ngày 2 Sáng: Stream Debounce ──────────────────────────
+import 'tuan3_ngay2/bai1_debounce_search_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -116,11 +119,17 @@ class MyApp extends StatelessWidget {
     //   home: CustomPainterScreen(),
     // );
 
+    // ── Tuần 3 Ngày 2 Sáng: Stream Debounce (đang bật) ───────
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: DebounceSearchScreen(),
+    );
+
     // ── Tuần 3 Ngày 1 Chiều Bài 4: shouldRepaint demo ────────
-       return const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: ShouldRepaintDemoScreen(),
-     );
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: ShouldRepaintDemoScreen(),
+    // );
 
     // ── Tuần 3 Ngày 1 Bài 1: Isolate demo — UI đơ vs mượt ────
     // return const MaterialApp(

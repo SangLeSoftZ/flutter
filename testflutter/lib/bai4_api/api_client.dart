@@ -91,4 +91,31 @@ class ApiClient {
       throw Exception('taoTask lỗi kết nối: $e');
     }
   }
+
+  // ── GET /tasks/search — Tuần 3 Ngày 2: Debounce ──────────────────────────
+  // Tìm kiếm task theo từ khóa — client-side filter (không cần endpoint mới)
+
+  // Bỏ dấu tiếng Việt — gõ "hoc" tìm được "Học", gõ "lam" tìm được "làm"
+  String _boDau(String text) {
+    const withDau  = 'àáảãạăắặẳẵằâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđ'
+                     'ÀÁẢÃẠĂẮẶẲẴẰÂẤẦẨẪẬÈÉẺẼẸÊẾỀỂỄỆÌÍỈĨỊÒÓỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÙÚỦŨỤƯỨỪỬỮỰỲÝỶỸỴĐ';
+    const khongDau = 'aaaaaaaaaaaaaaaaaaaaaeeeeeeeeeeeiiiiioooooooooooooooooouuuuuuuuuuuyyyyyd'
+                     'aaaaaaaaaaaaaaaaaaaaaeeeeeeeeeeeiiiiioooooooooooooooooouuuuuuuuuuuyyyyyd';
+    var result = text;
+    for (var i = 0; i < withDau.length; i++) {
+      result = result.replaceAll(withDau[i], khongDau[i]);
+    }
+    return result.toLowerCase();
+  }
+
+  Future<List<Task>> timKiemTask(String tuKhoa) async {
+    final allTasks = await layDanhSachTask();
+    if (tuKhoa.isEmpty) return allTasks;
+    final keyword = _boDau(tuKhoa);
+    return allTasks
+        .where((t) =>
+            _boDau(t.tieuDe).contains(keyword) ||
+            _boDau(t.moTa).contains(keyword))
+        .toList();
+  }
 }
