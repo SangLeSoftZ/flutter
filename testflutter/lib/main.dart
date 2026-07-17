@@ -77,6 +77,10 @@ import 'tuan3_ngay1/bai4_should_repaint_demo_screen.dart';
 // ── Tuần 3 Ngày 2 Sáng: Stream Debounce ──────────────────────────
 import 'tuan3_ngay2/bai1_debounce_search_screen.dart';
 
+// ── Tuần 3 Ngày 2 Chiều: WebSocket + STOMP ───────────────────────
+import 'tuan3_ngay2/bai3_websocket_echo_screen.dart';
+import 'tuan3_ngay2/bai4_stomp_demo_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -119,11 +123,23 @@ class MyApp extends StatelessWidget {
     //   home: CustomPainterScreen(),
     // );
 
-    // ── Tuần 3 Ngày 2 Sáng: Stream Debounce (đang bật) ───────
-    return const MaterialApp(
+    // ── Tuần 3 Ngày 2 Chiều Bài 3: WebSocket Echo (đang bật) ─
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: WebSocketEchoScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 2 Chiều Bài 4: STOMP Demo ────────────────
+     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: DebounceSearchScreen(),
-    );
+      home: StompDemoScreen(),
+     );
+
+    // ── Tuần 3 Ngày 2 Sáng: Stream Debounce ──────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: DebounceSearchScreen(),
+    // );
 
     // ── Tuần 3 Ngày 1 Chiều Bài 4: shouldRepaint demo ────────
     // return const MaterialApp(

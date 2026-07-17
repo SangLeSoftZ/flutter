@@ -23,6 +23,8 @@ dependencies:
   go_router: ^14.0.0
   sqflite: ^2.3.0               # Tuần 2 Ngày 5 — SQLite local database
   path: ^1.9.0                  # Tuần 2 Ngày 5 — xử lý đường dẫn file
+  web_socket_channel: ^3.0.0    # Tuần 3 Ngày 2 — WebSocket client
+  stomp_dart_client: ^2.1.2     # Tuần 3 Ngày 2 — STOMP over WebSocket
 
 dev_dependencies:
   flutter_test:
