@@ -70,6 +70,10 @@ import 'tuan2_ngay5/presentation/screens/drift_task_screen.dart';
 import 'tuan3_ngay1/bai1_isolate_demo_screen.dart';
 import 'tuan3_ngay1/bai2_isolate_parse_screen.dart';
 
+// ── Tuần 3 Ngày 1 Chiều: CustomPainter ───────────────────────────
+import 'tuan3_ngay1/bai3_custom_painter_screen.dart';
+import 'tuan3_ngay1/bai4_should_repaint_demo_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -106,6 +110,18 @@ class MyApp extends StatelessWidget {
     // ĐỔI DÒNG return bên dưới để chạy từng bài
     // ══════════════════════════════════════════════════════════
 
+    // ── Tuần 3 Ngày 1 Chiều Bài 3: CustomPainter (đang bật) ──
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: CustomPainterScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 1 Chiều Bài 4: shouldRepaint demo ────────
+       return const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: ShouldRepaintDemoScreen(),
+     );
+
     // ── Tuần 3 Ngày 1 Bài 1: Isolate demo — UI đơ vs mượt ────
     // return const MaterialApp(
     //   debugShowCheckedModeBanner: false,
@@ -113,10 +129,10 @@ class MyApp extends StatelessWidget {
     // );
 
     // ── Tuần 3 Ngày 1 Bài 2: Isolate parse JSON lớn ──────────
-      return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-       home: IsolateParseScreen(),
-     );
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: IsolateParseScreen(),
+    // );
 
     // ── Tuần 2 Ngày 5: Drift + Clean Architecture ─────────────
     // return MaterialApp(
