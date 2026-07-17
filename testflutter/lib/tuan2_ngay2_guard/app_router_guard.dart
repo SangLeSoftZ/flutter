@@ -13,7 +13,7 @@ import '../bai4_api/task_model.dart';
 //   Buổi chiều: có redirect — chưa đăng nhập bị đá về /login
 //
 // Cơ chế:
-//   refreshListenable: authState → mỗi khi authState.capNhat()
+//   refreshListenable: authState → mỗi khi authState.c x`apNhat()
 //     được gọi, go_router tự chạy lại hàm redirect() bên dưới
 // ══════════════════════════════════════════════════════════════════
 

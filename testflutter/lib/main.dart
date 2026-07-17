@@ -66,6 +66,10 @@ import 'tuan2_ngay5/domain/repositories/task_local_repository.dart';
 import 'tuan2_ngay5/presentation/cubit/drift_task_cubit.dart';
 import 'tuan2_ngay5/presentation/screens/drift_task_screen.dart';
 
+// ── Tuần 3 Ngày 1: Isolates + compute() ──────────────────────────
+import 'tuan3_ngay1/bai1_isolate_demo_screen.dart';
+import 'tuan3_ngay1/bai2_isolate_parse_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -102,35 +106,34 @@ class MyApp extends StatelessWidget {
     // ĐỔI DÒNG return bên dưới để chạy từng bài
     // ══════════════════════════════════════════════════════════
 
-    // ── Tuần 2 Ngày 5: Drift + Clean Architecture (đang bật) ─
-    // FutureBuilder để khởi tạo Drift SAU khi Flutter engine sẵn sàng
-    // tránh deadlock khi gọi NativeDatabase trước runApp
-    return MaterialApp(
+    // ── Tuần 3 Ngày 1 Bài 1: Isolate demo — UI đơ vs mượt ────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: IsolateDemoScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 1 Bài 2: Isolate parse JSON lớn ──────────
+      return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FutureBuilder(
-        future: drift_provider.setupDriftLocator(),
-        builder: (context, snapshot) {
-          if (snapshot.connectionState != ConnectionState.done) {
-            return const Scaffold(
-              body: Center(child: CircularProgressIndicator()),
-            );
-          }
-          if (snapshot.hasError) {
-            return Scaffold(
-              body: Center(
-                child: Text('Lỗi khởi tạo DB: ${snapshot.error}'),
-              ),
-            );
-          }
-          return BlocProvider(
-            create: (_) => DriftTaskCubit(
-              drift_provider.getIt<TaskLocalRepository>(),
-            ),
-            child: const DriftTaskScreen(),
-          );
-        },
-      ),
-    );
+       home: IsolateParseScreen(),
+     );
+
+    // ── Tuần 2 Ngày 5: Drift + Clean Architecture ─────────────
+    // return MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: FutureBuilder(
+    //     future: drift_provider.setupDriftLocator(),
+    //     builder: (context, snapshot) {
+    //       if (snapshot.connectionState != ConnectionState.done) {
+    //         return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    //       }
+    //       return BlocProvider(
+    //         create: (_) => DriftTaskCubit(drift_provider.getIt<TaskLocalRepository>()),
+    //         child: const DriftTaskScreen(),
+    //       );
+    //     },
+    //   ),
+    // );
 
     // ── Tuần 2 Ngày 4 Chiều: Theming ─────────────────────────
     // return BlocProvider(
