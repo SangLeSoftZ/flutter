@@ -91,6 +91,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'tuan3_ngay3/bai4_state_provider_screen.dart';
 import 'tuan3_ngay3/bai5_notifier_screen.dart';
 
+// ── Tuần 3 Ngày 4 Sáng: Platform Channel ─────────────────────────
+import 'tuan3_ngay4/bai1_platform_channel_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -160,13 +163,27 @@ class MyApp extends StatelessWidget {
     //   ),
     // );
 
-    // ── Tuần 3 Ngày 3 Chiều Bài 5: Riverpod Notifier ─────────
-     return const ProviderScope(
-      child: MaterialApp(
+    // ── Tuần 3 Ngày 4 Sáng: Platform Channel (đang bật) ──────
+    return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: Bai5NotifierScreen(),
-     ),
+      home: PlatformChannelScreen(),
     );
+
+    // ── Tuần 3 Ngày 3 Chiều Bài 4: Riverpod StateProvider ────
+    // return const ProviderScope(
+    //   child: MaterialApp(
+    //     debugShowCheckedModeBanner: false,
+    //     home: Bai4StateProviderScreen(),
+    //   ),
+    // );
+
+    // ── Tuần 3 Ngày 3 Chiều Bài 5: Riverpod Notifier ─────────
+    // return const ProviderScope(
+    //   child: MaterialApp(
+    //     debugShowCheckedModeBanner: false,
+    //     home: Bai5NotifierScreen(),
+    //   ),
+    // );
 
     // ── Tuần 3 Ngày 3 Bài 3: Extension ───────────────────────
     // return const MaterialApp(
