@@ -25,12 +25,11 @@ dependencies:
   path: ^1.9.0                  # Tuần 2 Ngày 5 — xử lý đường dẫn file
   web_socket_channel: ^3.0.0    # Tuần 3 Ngày 2 — WebSocket client
   stomp_dart_client: ^2.1.2     # Tuần 3 Ngày 2 — STOMP over WebSocket
+  flutter_riverpod: ^2.6.1      # Tuần 3 Ngày 3 — Riverpod (so sánh với Cubit)
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  integration_test:
-    sdk: flutter          # Tuần 2 Ngày 6 — Integration Test end-to-end
   flutter_lints: ^5.0.0
   bloc_test: ^9.1.7
   mocktail: ^1.0.4

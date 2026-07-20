@@ -81,6 +81,16 @@ import 'tuan3_ngay2/bai1_debounce_search_screen.dart';
 import 'tuan3_ngay2/bai3_websocket_echo_screen.dart';
 import 'tuan3_ngay2/bai4_stomp_demo_screen.dart';
 
+// ── Tuần 3 Ngày 3 Sáng: Generics + Mixin + Extension ────────────
+import 'tuan3_ngay3/bai1_generics.dart';
+import 'tuan3_ngay3/bai2_mixin.dart';
+import 'tuan3_ngay3/bai3_extension.dart';
+
+// ── Tuần 3 Ngày 3 Chiều: Riverpod ────────────────────────────────
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'tuan3_ngay3/bai4_state_provider_screen.dart';
+import 'tuan3_ngay3/bai5_notifier_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -129,11 +139,46 @@ class MyApp extends StatelessWidget {
     //   home: WebSocketEchoScreen(),
     // );
 
-    // ── Tuần 3 Ngày 2 Chiều Bài 4: STOMP Demo ────────────────
-     return const MaterialApp(
+    // ── Tuần 3 Ngày 3 Bài 1: Generics (đang bật) ─────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: GenericsScreen(),
+    // );
+
+    // // ── Tuần 3 Ngày 3 Bài 2: Mixin ───────────────────────────
+    //    return const MaterialApp(
+    //     debugShowCheckedModeBanner: false,
+    //     home: MixinScreen(),
+    //  );
+
+    // ── Tuần 3 Ngày 3 Chiều Bài 4: Riverpod StateProvider ────
+    // ProviderScope bọc app 1 lần — tương đương BlocProvider ở gốc
+    // return const ProviderScope(
+    //   child: MaterialApp(
+    //     debugShowCheckedModeBanner: false,
+    //     home: Bai4StateProviderScreen(),
+    //   ),
+    // );
+
+    // ── Tuần 3 Ngày 3 Chiều Bài 5: Riverpod Notifier ─────────
+     return const ProviderScope(
+      child: MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: StompDemoScreen(),
-     );
+      home: Bai5NotifierScreen(),
+     ),
+    );
+
+    // ── Tuần 3 Ngày 3 Bài 3: Extension ───────────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: ExtensionScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 2 Chiều Bài 4: STOMP Demo ────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: StompDemoScreen(),
+    // );
 
     // ── Tuần 3 Ngày 2 Sáng: Stream Debounce ──────────────────
     // return const MaterialApp(
