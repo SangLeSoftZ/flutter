@@ -94,6 +94,10 @@ import 'tuan3_ngay3/bai5_notifier_screen.dart';
 // ── Tuần 3 Ngày 4 Sáng: Platform Channel ─────────────────────────
 import 'tuan3_ngay4/bai1_platform_channel_screen.dart';
 
+// ── Tuần 3 Ngày 4 Chiều: Bloc Transformer ────────────────────────
+import 'tuan3_ngay4/bai3_bai4_search_screen.dart';
+import 'tuan3_ngay4/bai5_droppable_login_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -163,11 +167,23 @@ class MyApp extends StatelessWidget {
     //   ),
     // );
 
-    // ── Tuần 3 Ngày 4 Sáng: Platform Channel (đang bật) ──────
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: PlatformChannelScreen(),
-    );
+    // // ── Tuần 3 Ngày 4 Chiều Bài 3+4: Bloc Transformer Search (đang bật) ─
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: SearchTransformerScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 4 Chiều Bài 5: droppable() Login ─────────
+       return const MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: DroppableLoginScreen(),
+     );
+
+    // ── Tuần 3 Ngày 4 Sáng: Platform Channel ─────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: PlatformChannelScreen(),
+    // );
 
     // ── Tuần 3 Ngày 3 Chiều Bài 4: Riverpod StateProvider ────
     // return const ProviderScope(
