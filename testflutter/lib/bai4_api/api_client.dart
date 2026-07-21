@@ -6,7 +6,7 @@ import '../login/data/datasources/auth_local_datasource.dart';
 /// ApiClient gọi Task API Spring Boot.
 /// BUG FIX: Gắn Authorization: Bearer token vào mọi request
 class ApiClient {
-  static const String _baseUrl = 'http://10.0.2.2:9090/api';
+  static const String _baseUrl = 'http://10.0.2.2:8080/api';
 
   final http.Client _client;
   final AuthLocalDataSource _authLocal;
@@ -30,7 +30,7 @@ class ApiClient {
   // ── GET /baiA ─────────────────────────────────────────────────────────────
 
   Future<List<Task>> layDanhSachTask() async {
-    final uri = Uri.parse('$_baseUrl/baiA');
+    final uri = Uri.parse('$_baseUrl/tasks');
     final headers = await _buildHeaders();
     try {
       final response = await _client
@@ -59,7 +59,7 @@ class ApiClient {
     String moTa = '',
     String trangThai = 'CHUA_XONG',
   }) async {
-    final uri = Uri.parse('$_baseUrl/baiA');
+    final uri = Uri.parse('$_baseUrl/tasks');
     final headers = await _buildHeaders(withContentType: true);
     final body = jsonEncode({
       'tieuDe': tieuDe,
@@ -90,5 +90,32 @@ class ApiClient {
     } catch (e) {
       throw Exception('taoTask lỗi kết nối: $e');
     }
+  }
+
+  // ── GET /tasks/search — Tuần 3 Ngày 2: Debounce ──────────────────────────
+  // Tìm kiếm task theo từ khóa — client-side filter (không cần endpoint mới)
+
+  // Bỏ dấu tiếng Việt — gõ "hoc" tìm được "Học", gõ "lam" tìm được "làm"
+  String _boDau(String text) {
+    const withDau  = 'àáảãạăắặẳẵằâấầẩẫậèéẻẽẹêếềểễệìíỉĩịòóỏõọôốồổỗộơớờởỡợùúủũụưứừửữựỳýỷỹỵđ'
+                     'ÀÁẢÃẠĂẮẶẲẴẰÂẤẦẨẪẬÈÉẺẼẸÊẾỀỂỄỆÌÍỈĨỊÒÓỎÕỌÔỐỒỔỖỘƠỚỜỞỠỢÙÚỦŨỤƯỨỪỬỮỰỲÝỶỸỴĐ';
+    const khongDau = 'aaaaaaaaaaaaaaaaaaaaaeeeeeeeeeeeiiiiioooooooooooooooooouuuuuuuuuuuyyyyyd'
+                     'aaaaaaaaaaaaaaaaaaaaaeeeeeeeeeeeiiiiioooooooooooooooooouuuuuuuuuuuyyyyyd';
+    var result = text;
+    for (var i = 0; i < withDau.length; i++) {
+      result = result.replaceAll(withDau[i], khongDau[i]);
+    }
+    return result.toLowerCase();
+  }
+
+  Future<List<Task>> timKiemTask(String tuKhoa) async {
+    final allTasks = await layDanhSachTask();
+    if (tuKhoa.isEmpty) return allTasks;
+    final keyword = _boDau(tuKhoa);
+    return allTasks
+        .where((t) =>
+            _boDau(t.tieuDe).contains(keyword) ||
+            _boDau(t.moTa).contains(keyword))
+        .toList();
   }
 }
