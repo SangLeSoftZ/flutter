@@ -98,6 +98,9 @@ import 'tuan3_ngay4/bai1_platform_channel_screen.dart';
 import 'tuan3_ngay4/bai3_bai4_search_screen.dart';
 import 'tuan3_ngay4/bai5_droppable_login_screen.dart';
 
+// ── Tuần 3 Ngày 5 Sáng: SpringSimulation + Lottie ────────────────
+import 'tuan3_ngay5/bai1a_spring_simulation_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -173,11 +176,17 @@ class MyApp extends StatelessWidget {
     //   home: SearchTransformerScreen(),
     // );
 
+    // ── Tuần 3 Ngày 5 Sáng: SpringSimulation (đang bật) ──────
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: SpringSimulationScreen(),
+    );
+
     // ── Tuần 3 Ngày 4 Chiều Bài 5: droppable() Login ─────────
-       return const MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: DroppableLoginScreen(),
-     );
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: DroppableLoginScreen(),
+    // );
 
     // ── Tuần 3 Ngày 4 Sáng: Platform Channel ─────────────────
     // return const MaterialApp(
