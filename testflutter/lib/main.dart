@@ -101,6 +101,10 @@ import 'tuan3_ngay4/bai5_droppable_login_screen.dart';
 // ── Tuần 3 Ngày 5 Sáng: SpringSimulation + Lottie ────────────────
 import 'tuan3_ngay5/bai1a_spring_simulation_screen.dart';
 
+// ── Tuần 3 Ngày 5 Chiều: ShellRoute + StatefulShellRoute ─────────
+import 'tuan3_ngay5/bai2_shell_route_screen.dart';
+import 'tuan3_ngay5/bai3_stateful_shell_route_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -176,11 +180,17 @@ class MyApp extends StatelessWidget {
     //   home: SearchTransformerScreen(),
     // );
 
-    // ── Tuần 3 Ngày 5 Sáng: SpringSimulation (đang bật) ──────
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: SpringSimulationScreen(),
-    );
+    // ── Tuần 3 Ngày 5 Chiều Bài 3: StatefulShellRoute (đang bật) ─
+    //return const StatefulShellRouteScreen();
+
+    // ── Tuần 3 Ngày 5 Chiều Bài 2: ShellRoute cơ bản ─────────
+      return const ShellRouteScreen();
+
+    // ── Tuần 3 Ngày 5 Sáng: SpringSimulation ─────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: SpringSimulationScreen(),
+    // );
 
     // ── Tuần 3 Ngày 4 Chiều Bài 5: droppable() Login ─────────
     // return const MaterialApp(
