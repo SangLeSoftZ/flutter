@@ -105,6 +105,10 @@ import 'tuan3_ngay5/bai1a_spring_simulation_screen.dart';
 import 'tuan3_ngay5/bai2_shell_route_screen.dart';
 import 'tuan3_ngay5/bai3_stateful_shell_route_screen.dart';
 
+// ── Tuần 3 Ngày 6 Sáng: get_it nâng cao ──────────────────────────
+import 'tuan3_ngay6/bai1_getit_lifecycle_screen.dart';
+import 'tuan3_ngay6/bai2_scope_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -140,8 +144,18 @@ class MyApp extends StatelessWidget {
     // ══════════════════════════════════════════════════════════
     // ĐỔI DÒNG return bên dưới để chạy từng bài
     // ══════════════════════════════════════════════════════════
+    // ── Tuần 3 Ngày 6 Sáng Bài 1: get_it vòng đời (đang bật) ────
+    //return const MaterialApp(
+      //debugShowCheckedModeBanner: false,
+      //home: GetItLifecycleScreen(),
+    //);
 
-    // ── Tuần 3 Ngày 1 Chiều Bài 3: CustomPainter (đang bật) ──
+    // ── Tuần 3 Ngày 6 Sáng Bài 2: get_it Scope ───────────────────
+      return const MaterialApp(
+       debugShowCheckedModeBanner: false,
+       home: ScopeScreen(),
+     );
+    // ── Tuần 3 Ngày 1 Chiều Bài 3: CustomPainter ────────────
     // return const MaterialApp(
     //   debugShowCheckedModeBanner: false,
     //   home: CustomPainterScreen(),
@@ -180,11 +194,11 @@ class MyApp extends StatelessWidget {
     //   home: SearchTransformerScreen(),
     // );
 
-    // ── Tuần 3 Ngày 5 Chiều Bài 3: StatefulShellRoute (đang bật) ─
-    //return const StatefulShellRouteScreen();
+    // ── Tuần 3 Ngày 5 Chiều Bài 3: StatefulShellRoute ────────────
+    // return const StatefulShellRouteScreen();
 
-    // ── Tuần 3 Ngày 5 Chiều Bài 2: ShellRoute cơ bản ─────────
-      return const ShellRouteScreen();
+    // ── Tuần 3 Ngày 5 Chiều Bài 2: ShellRoute cơ bản ─────────────
+    // return const ShellRouteScreen();
 
     // ── Tuần 3 Ngày 5 Sáng: SpringSimulation ─────────────────
     // return const MaterialApp(
