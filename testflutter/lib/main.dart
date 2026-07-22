@@ -113,6 +113,9 @@ import 'tuan3_ngay6/bai2_scope_screen.dart';
 import 'tuan3_ngay7/bai2_sealed_demo_screen.dart';
 import 'tuan3_ngay7/bai3_records_screen.dart';
 
+// ── Tuần 3 Ngày 7 Chiều: BlocSelector + buildWhen + listenWhen ───
+import 'tuan3_ngay7/bai4_bai5_bai6_bloc_selector_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -148,17 +151,23 @@ class MyApp extends StatelessWidget {
     // ══════════════════════════════════════════════════════════
     // ĐỔI DÒNG return bên dưới để chạy từng bài
     // ══════════════════════════════════════════════════════════
-    // ── Tuần 3 Ngày 7 Bài 1+2: Sealed Class (đang bật) ───────
+    // ── Tuần 3 Ngày 7 Chiều Bài 4+5+6: BlocSelector (đang bật) ─
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: BlocSelectorScreen(),
+    );
+
+    // ── Tuần 3 Ngày 7 Sáng Bài 1+2: Sealed Class ─────────────
     // return const MaterialApp(
     //   debugShowCheckedModeBanner: false,
     //   home: SealedClassScreen(),
     // );
 
     // ── Tuần 3 Ngày 7 Bài 3: Records ─────────────────────────
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: RecordsScreen(),
-    );
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: RecordsScreen(),
+    // );
 
     // ── Tuần 3 Ngày 6 Bài 1: get_it vòng đời ─────────────────
     // return const MaterialApp(
