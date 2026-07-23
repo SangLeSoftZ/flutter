@@ -104,7 +104,27 @@ import 'tuan3_ngay5/bai1a_spring_simulation_screen.dart';
 // ── Tuần 3 Ngày 5 Chiều: ShellRoute + StatefulShellRoute ─────────
 import 'tuan3_ngay5/bai2_shell_route_screen.dart';
 import 'tuan3_ngay5/bai3_stateful_shell_route_screen.dart';
+// ── Tuần 3 Ngày 6 Sáng: get_it nâng cao ──────────────────────────
+import 'tuan3_ngay6/bai1_getit_lifecycle_screen.dart';
+import 'tuan3_ngay6/bai2_scope_screen.dart';
 
+// ── Tuần 3 Ngày 7 Sáng: Sealed Class + Records ───────────────────
+import 'tuan3_ngay7/bai2_sealed_demo_screen.dart';
+import 'tuan3_ngay7/bai3_records_screen.dart';
+
+// ── Tuần 3 Ngày 7 Chiều: BlocSelector + buildWhen + listenWhen ───
+import 'tuan3_ngay7/bai4_bai5_bai6_bloc_selector_screen.dart';
+
+// ── Tuần 3 Ngày 8 Sáng: flutter_secure_storage ───────────────────
+import 'tuan3_ngay8/bai1_secure_storage_screen.dart';
+
+// ── Tuần 3 Ngày 8 Chiều: Dio AuthInterceptor ─────────────────────
+import 'tuan3_ngay8/bai4_bai5_interceptor_demo_screen.dart';
+
+// ── Menu Screen ──────────────────────────────────────────────────
+import 'menu_screen.dart';
+
+ main
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -140,7 +160,258 @@ class MyApp extends StatelessWidget {
     // ══════════════════════════════════════════════════════════
     // ĐỔI DÒNG return bên dưới để chạy từng bài
     // ══════════════════════════════════════════════════════════
+    // ── MENU SCREEN (mac dinh) ────────────────────────────────────
+    return const MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: MenuScreen(),
+    );
 
+    // ── Tuần 3 Ngày 8 Chiều Bài 4+5: AuthInterceptor (cu)
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: InterceptorDemoScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 8 Bài 1: SecureStorage demo ──────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: SecureStorageScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 7 Chiều Bài 4+5+6: BlocSelector ──────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: BlocSelectorScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 7 Sáng Bài 1+2: Sealed Class ─────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: SealedClassScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 7 Bài 3: Records ─────────────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: RecordsScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 6 Bài 1: get_it vòng đời ─────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: GetItLifecycleScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 6 Sáng Bài 2: get_it Scope ───────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: ScopeScreen(),
+    // );
+    // ── Tuần 3 Ngày 1 Chiều Bài 3: CustomPainter ────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: CustomPainterScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 2 Chiều Bài 3: WebSocket Echo (đang bật) ─
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: WebSocketEchoScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 3 Bài 1: Generics (đang bật) ─────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: GenericsScreen(),
+    // );
+
+    // // ── Tuần 3 Ngày 3 Bài 2: Mixin ───────────────────────────
+    //    return const MaterialApp(
+    //     debugShowCheckedModeBanner: false,
+    //     home: MixinScreen(),
+    //  );
+
+    // ── Tuần 3 Ngày 3 Chiều Bài 4: Riverpod StateProvider ────
+    // ProviderScope bọc app 1 lần — tương đương BlocProvider ở gốc
+    // return const ProviderScope(
+    //   child: MaterialApp(
+    //     debugShowCheckedModeBanner: false,
+    //     home: Bai4StateProviderScreen(),
+    //   ),
+    // );
+
+    // // ── Tuần 3 Ngày 4 Chiều Bài 3+4: Bloc Transformer Search (đang bật) ─
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: SearchTransformerScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 5 Chiều Bài 3: StatefulShellRoute ────────────
+    // return const StatefulShellRouteScreen();
+
+    // ── Tuần 3 Ngày 5 Chiều Bài 2: ShellRoute cơ bản ─────────────
+    // return const ShellRouteScreen();
+
+    // ── Tuần 3 Ngày 5 Sáng: SpringSimulation ─────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: SpringSimulationScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 4 Chiều Bài 5: droppable() Login ─────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: DroppableLoginScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 4 Sáng: Platform Channel ─────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: PlatformChannelScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 3 Chiều Bài 4: Riverpod StateProvider ────
+    // return const ProviderScope(
+    //   child: MaterialApp(
+    //     debugShowCheckedModeBanner: false,
+    //     home: Bai4StateProviderScreen(),
+    //   ),
+    // );
+
+    // ── Tuần 3 Ngày 3 Chiều Bài 5: Riverpod Notifier ─────────
+    // return const ProviderScope(
+    //   child: MaterialApp(
+    //     debugShowCheckedModeBanner: false,
+    //     home: Bai5NotifierScreen(),
+    //   ),
+    // );
+
+    // ── Tuần 3 Ngày 3 Bài 3: Extension ───────────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: ExtensionScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 2 Chiều Bài 4: STOMP Demo ────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: StompDemoScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 2 Sáng: Stream Debounce ──────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: DebounceSearchScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 1 Chiều Bài 4: shouldRepaint demo ────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: ShouldRepaintDemoScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 1 Bài 1: Isolate demo — UI đơ vs mượt ────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: IsolateDemoScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 1 Bài 2: Isolate parse JSON lớn ──────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: IsolateParseScreen(),
+    // );
+
+    // ── Tuần 2 Ngày 5: Drift + Clean Architecture ─────────────
+    // return MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: FutureBuilder(
+    //     future: drift_provider.setupDriftLocator(),
+    //     builder: (context, snapshot) {
+    //       if (snapshot.connectionState != ConnectionState.done) {
+    //         return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    //       }
+    //       return BlocProvider(
+    //         create: (_) => DriftTaskCubit(drift_provider.getIt<TaskLocalRepository>()),
+    //         child: const DriftTaskScreen(),
+    //       );
+    //     },
+    //   ),
+    // );
+
+    // ── Tuần 2 Ngày 4 Chiều: Theming ─────────────────────────
+    // return BlocProvider(
+    //   create: (_) => ThemeCubit(),
+    //   child: BlocBuilder<ThemeCubit, bool>(
+    //     builder: (context, isDark) {
+    //       return MaterialApp(
+    //         debugShowCheckedModeBanner: false,
+    //         theme: lightTheme,
+    //         darkTheme: darkTheme,
+    //         themeMode: isDark ? ThemeMode.dark : ThemeMode.light,
+    //         home: const ThemedTaskScreen(),
+    //       );
+    //     },
+    //   ),
+    // );
+
+    // ── Tuần 2 Ngày 4 Sáng: Custom Widget ────────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: CustomWidgetScreen(),
+    // );
+
+    // ── Tuần 2 Ngày 3 Chiều: Hero Animation ──────────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: HeroTaskListScreen(),
+    // );
+
+    // ── Tuần 2 Ngày 3 Bài 2: AnimatedOpacity + Login ─────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: LoginAnimationScreen(),
+    // );
+
+    // ── Tuần 2 Ngày 3 Bài 1: AnimatedContainer ───────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: AnimatedBoxScreen(),
+    // );
+
+    // ── Tuần 2 Ngày 2 Chiều: Route Guard ─────────────────────
+    // return MaterialApp.router(
+    //   title: 'Bai Tap Flutter',
+    //   debugShowCheckedModeBanner: false,
+    //   routerConfig: appRouterGuard,
+    // );
+
+    // ── Tuần 2 Ngày 2 Sáng: go_router cơ bản ─────────────────
+    // return MaterialApp.router(
+    //   title: 'Bai Tap Flutter',
+    //   debugShowCheckedModeBanner: false,
+    //   routerConfig: appRouter,
+    // );
+
+    // ── Tuần 2 Ngày 1: HydratedBloc ──────────────────────────
+    // return MaterialApp(
+    //   title: 'Bai Tap Flutter',
+    //   debugShowCheckedModeBanner: false,
+    //   theme: ThemeData(colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple), useMaterial3: true),
+    //   home: const ThemeScreen(),
+    // );
+
+    // ── Bài 4+5: Auth flow hoàn chỉnh ─────────────────────────
+    //return MaterialApp(home: const AuthStartup());
+
+    // ── Bài 5 storage: Onboarding ─────────────────────────────
+    // return MaterialApp(home: const AppStartup());
+
+    // ── Bài 5 storage: Hive Task CRUD ─────────────────────────
+    // return MaterialApp(home: const HiveTaskScreen());
+
+    // ── Bài 4: Task API ───────────────────────────────────────
+    // return MaterialApp(home: const TaskScreen());
     // ── Tuần 3 Ngày 1 Chiều Bài 3: CustomPainter (đang bật) ──
     // return const MaterialApp(
     //   debugShowCheckedModeBanner: false,
@@ -184,7 +455,7 @@ class MyApp extends StatelessWidget {
     //return const StatefulShellRouteScreen();
 
     // ── Tuần 3 Ngày 5 Chiều Bài 2: ShellRoute cơ bản ─────────
-      return const ShellRouteScreen();
+     // return const ShellRouteScreen();
 
     // ── Tuần 3 Ngày 5 Sáng: SpringSimulation ─────────────────
     // return const MaterialApp(
