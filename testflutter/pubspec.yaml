@@ -27,6 +27,7 @@ dependencies:
   stomp_dart_client: ^2.1.2     # Tuần 3 Ngày 2 — STOMP over WebSocket
   flutter_riverpod: ^2.6.1      # Tuần 3 Ngày 3 — Riverpod (so sánh với Cubit)
   bloc_concurrency: ^0.2.5      # Tuần 3 Ngày 4 — Bloc Transformer (restartable/droppable)
+  dio: ^5.8.0                   # Tuần 3 Ngày 8 — Dio HTTP client + AuthInterceptor
 
 dev_dependencies:
   flutter_test:

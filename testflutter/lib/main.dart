@@ -116,6 +116,15 @@ import 'tuan3_ngay7/bai3_records_screen.dart';
 // ── Tuần 3 Ngày 7 Chiều: BlocSelector + buildWhen + listenWhen ───
 import 'tuan3_ngay7/bai4_bai5_bai6_bloc_selector_screen.dart';
 
+// ── Tuần 3 Ngày 8 Sáng: flutter_secure_storage ───────────────────
+import 'tuan3_ngay8/bai1_secure_storage_screen.dart';
+
+// ── Tuần 3 Ngày 8 Chiều: Dio AuthInterceptor ─────────────────────
+import 'tuan3_ngay8/bai4_bai5_interceptor_demo_screen.dart';
+
+// ── Menu Screen ──────────────────────────────────────────────────
+import 'menu_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
@@ -151,11 +160,30 @@ class MyApp extends StatelessWidget {
     // ══════════════════════════════════════════════════════════
     // ĐỔI DÒNG return bên dưới để chạy từng bài
     // ══════════════════════════════════════════════════════════
-    // ── Tuần 3 Ngày 7 Chiều Bài 4+5+6: BlocSelector (đang bật) ─
+
+    // ── MENU SCREEN (mac dinh) ────────────────────────────────────
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: BlocSelectorScreen(),
+      home: MenuScreen(),
     );
+
+    // ── Tuần 3 Ngày 8 Chiều Bài 4+5: AuthInterceptor (cu)
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: InterceptorDemoScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 8 Bài 1: SecureStorage demo ──────────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: SecureStorageScreen(),
+    // );
+
+    // ── Tuần 3 Ngày 7 Chiều Bài 4+5+6: BlocSelector ──────────
+    // return const MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: BlocSelectorScreen(),
+    // );
 
     // ── Tuần 3 Ngày 7 Sáng Bài 1+2: Sealed Class ─────────────
     // return const MaterialApp(
@@ -375,7 +403,7 @@ class MyApp extends StatelessWidget {
     // );
 
     // ── Bài 4+5: Auth flow hoàn chỉnh ─────────────────────────
-    // return MaterialApp(home: const AuthStartup());
+    //return MaterialApp(home: const AuthStartup());
 
     // ── Bài 5 storage: Onboarding ─────────────────────────────
     // return MaterialApp(home: const AppStartup());
