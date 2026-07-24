@@ -1,6 +1,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <!-- Cho phép app gọi HTTP/HTTPS ra ngoài (bắt buộc để dùng http package) -->
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- Tuần 4 Ngày 3 — image_picker: đọc ảnh từ gallery (Android 13+) -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES"/>
+    <!-- Android 12 trở xuống -->
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" android:maxSdkVersion="32"/>
     <application
         android:label="testflutter"
         android:name="${applicationName}"

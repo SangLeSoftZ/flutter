@@ -122,6 +122,12 @@ import 'tuan3_ngay8/bai1_secure_storage_screen.dart';
 // ── Tuần 3 Ngày 8 Chiều: Dio AuthInterceptor ─────────────────────
 import 'tuan3_ngay8/bai4_bai5_interceptor_demo_screen.dart';
 
+// ── Tuần 3 Ngày 9 Sáng: image_picker + file_picker ───────────────
+import 'tuan3_ngay9/bai1_image_picker_screen.dart';
+import 'tuan3_ngay9/bai2_file_picker_screen.dart';
+import 'tuan3_ngay9/bai3_upload_service.dart';
+import 'tuan3_ngay9/bai4_bai5_upload_screen.dart';
+
 // ── Menu Screen ──────────────────────────────────────────────────
 import 'menu_screen.dart';
 
@@ -330,10 +336,14 @@ class MyApp extends StatelessWidget {
     //     future: drift_provider.setupDriftLocator(),
     //     builder: (context, snapshot) {
     //       if (snapshot.connectionState != ConnectionState.done) {
-    //         return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    //         return const Scaffold(
+    //           body: Center(child: CircularProgressIndicator()),
+    //         );
     //       }
     //       return BlocProvider(
-    //         create: (_) => DriftTaskCubit(drift_provider.getIt<TaskLocalRepository>()),
+    //         create:
+    //             (_) =>
+    //                 DriftTaskCubit(drift_provider.getIt<TaskLocalRepository>()),
     //         child: const DriftTaskScreen(),
     //       );
     //     },
