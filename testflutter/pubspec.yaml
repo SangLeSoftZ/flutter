@@ -30,6 +30,7 @@ dependencies:
   dio: ^5.8.0                   # Tuần 3 Ngày 8 — Dio HTTP client + AuthInterceptor
   image_picker: ^1.1.2           # Tuần 4 Ngày 3 — chọn ảnh từ gallery/camera
   file_picker: ^8.1.2            # Tuần 4 Ngày 3 — chọn tài liệu PDF/DOC/XLSX
+  local_auth: ^2.3.0             # Tuần 4 Ngày 1 — sinh trắc học (vân tay/Face ID)
 
 dev_dependencies:
   flutter_test:

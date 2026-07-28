@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'tuan4_ngay1/bai1_biometric_service.dart';
+import 'tuan4_ngay1/bai2_biometric_demo_screen.dart';
+import 'tuan4_ngay1/bai3_bai4_bai5_login_sinh_trac_hoc.dart';
 import 'tuan3_ngay9/bai1_task_with_image_screen.dart';
 import 'tuan3_ngay9/bai1_image_picker_screen.dart';
 import 'tuan3_ngay9/bai2_file_picker_screen.dart';
@@ -29,6 +32,26 @@ class MenuScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          _buildSection(
+            context,
+            title: 'Tuần 4 Ngày 1 — Sinh trắc học',
+            color: Colors.indigo.shade700,
+            items: [
+              _MenuItem(
+                title: 'Bài 2: Biometric Demo',
+                subtitle: 'Test vân tay/Face ID, kiem tra ho tro, xu ly loi',
+                icon: Icons.fingerprint,
+                screen: const Bai2BiometricDemoScreen(),
+              ),
+              _MenuItem(
+                title: 'Bài 3+4+5: Luồng Login Sinh trắc học',
+                subtitle:
+                    'Login -> hoi bat van tay -> kiem tra -> dang nhap nhanh',
+                icon: Icons.login,
+                screen: const Bai4KiemTraDangNhapScreen(),
+              ),
+            ],
+          ),
           _buildSection(
             context,
             title: 'Tuần 3 Ngày 9 — File Upload',

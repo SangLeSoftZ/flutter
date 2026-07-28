@@ -122,6 +122,11 @@ import 'tuan3_ngay8/bai1_secure_storage_screen.dart';
 // ── Tuần 3 Ngày 8 Chiều: Dio AuthInterceptor ─────────────────────
 import 'tuan3_ngay8/bai4_bai5_interceptor_demo_screen.dart';
 
+// ── Tuần 4 Ngày 1 Sáng: local_auth sinh trắc học ─────────────────
+import 'tuan4_ngay1/bai1_biometric_service.dart';
+import 'tuan4_ngay1/bai2_biometric_demo_screen.dart';
+import 'tuan4_ngay1/bai3_bai4_bai5_login_sinh_trac_hoc.dart';
+
 // ── Tuần 3 Ngày 9 Sáng: image_picker + file_picker ───────────────
 import 'tuan3_ngay9/bai1_image_picker_screen.dart';
 import 'tuan3_ngay9/bai2_file_picker_screen.dart';

@@ -21,6 +21,8 @@ const String kRefreshTokenKey = 'auth_refresh_token'; // refresh token (riêng)
 const String kUsernameKey = 'auth_username';
 const String kRoleKey = 'auth_role';
 const String kUserIdKey = 'auth_user_id';
+const String kDaBatSinhTracHocKey =
+    'da_bat_sinh_trac_hoc'; // Tuan 4 Ngay 1 — co sinh trac hoc
 
 class AuthLocalDataSource {
   final FlutterSecureStorage _storage;
@@ -88,6 +90,19 @@ class AuthLocalDataSource {
     return refreshToken != null && refreshToken.isNotEmpty;
   }
 
+  // ── Tuan 4 Ngay 1: co sinh trac hoc ──────────────────────────
+  // Luu co "da bat sinh trac hoc" trong secure storage (khong phai SharedPreferences)
+  // Li do: du gia tri nay khong nhay cam, neu luu o noi de chinh sua tu ben ngoai
+  // co the bi gia mao -> app hien nut sinh trac hoc du nguoi dung chua tung dong y
+  Future<void> datBatSinhTracHoc(bool batTat) async {
+    await _storage.write(key: kDaBatSinhTracHocKey, value: batTat.toString());
+  }
+
+  Future<bool> daBatSinhTracHoc() async {
+    final giaTri = await _storage.read(key: kDaBatSinhTracHocKey);
+    return giaTri == 'true';
+  }
+
   // ── XÓA tất cả token khi logout ──────────────────────────────
   Future<void> clearAuthInfo() async {
     await Future.wait([
@@ -96,6 +111,9 @@ class AuthLocalDataSource {
       _storage.delete(key: kUsernameKey),
       _storage.delete(key: kRoleKey),
       _storage.delete(key: kUserIdKey),
+      _storage.delete(
+        key: kDaBatSinhTracHocKey,
+      ), // xoa ca co sinh trac hoc khi logout
     ]);
   }
 }
