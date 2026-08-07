@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'tuan3_ngay9/bai1_task_with_image_screen.dart';
+import 'tuan3_ngay9/bai1_image_picker_screen.dart';
+import 'tuan3_ngay9/bai2_file_picker_screen.dart';
+import 'tuan3_ngay9/bai4_bai5_upload_screen.dart';
 import 'tuan3_ngay8/quick_login_screen.dart';
 import 'tuan3_ngay8/bai1_secure_storage_screen.dart';
 import 'tuan3_ngay8/bai4_bai5_interceptor_demo_screen.dart';
@@ -25,6 +29,38 @@ class MenuScreen extends StatelessWidget {
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
+          _buildSection(
+            context,
+            title: 'Tuần 3 Ngày 9 — File Upload',
+            color: Colors.deepOrange.shade700,
+            items: [
+              _MenuItem(
+                title: 'Bài 1: Task + Đính kèm ảnh',
+                subtitle: 'Tao/sua Task voi nut chon anh tu gallery',
+                icon: Icons.task_alt,
+                screen: const Bai1TaskWithImageScreen(),
+              ),
+              _MenuItem(
+                title: 'Bài 1: image_picker',
+                subtitle: 'Chon anh gallery/camera, preview, nen chat luong',
+                icon: Icons.photo_library,
+                screen: const Bai1ImagePickerScreen(),
+              ),
+              _MenuItem(
+                title: 'Bài 2: file_picker',
+                subtitle: 'Chon tai lieu PDF/DOC/XLSX, hien thi thong tin',
+                icon: Icons.attach_file,
+                screen: const Bai2FilePickerScreen(),
+              ),
+              _MenuItem(
+                title: 'Bài 4+5: Upload + Tiến trình',
+                subtitle:
+                    'Dio multipart, LinearProgressIndicator, xu ly loi 413/timeout',
+                icon: Icons.cloud_upload,
+                screen: const Bai4Bai5UploadScreen(),
+              ),
+            ],
+          ),
           _buildSection(
             context,
             title: 'Tuần 3 Ngày 8 — Token + Interceptor',
@@ -135,11 +171,16 @@ class MenuScreen extends StatelessWidget {
           style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
         ),
         subtitle: Text(item.subtitle, style: const TextStyle(fontSize: 12)),
-        trailing: Icon(Icons.arrow_forward_ios, size: 16, color: Colors.grey.shade400),
-        onTap: () => Navigator.push(
-          context,
-          MaterialPageRoute(builder: (_) => item.screen),
+        trailing: Icon(
+          Icons.arrow_forward_ios,
+          size: 16,
+          color: Colors.grey.shade400,
         ),
+        onTap:
+            () => Navigator.push(
+              context,
+              MaterialPageRoute(builder: (_) => item.screen),
+            ),
       ),
     );
   }
